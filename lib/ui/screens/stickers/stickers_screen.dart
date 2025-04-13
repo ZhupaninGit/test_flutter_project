@@ -12,12 +12,12 @@ class StickersScreen extends StatelessWidget {
     final stickerPacks = context.watch<StickersViewModel>().stickerPacks;
 
     return SingleChildScrollView(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _sectionTitle("Найпопулярніші Стікерпаки"),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           SizedBox(
             height: 120,
             child: ListView.builder(
@@ -28,9 +28,9 @@ class StickersScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           _sectionTitle("Нові стікерпаки"),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           SizedBox(
             height: 120,
             child: ListView.builder(
@@ -41,17 +41,17 @@ class StickersScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           _sectionTitle("Категорії Стікерпаків"),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           GridView.count(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             crossAxisCount: 3,
             shrinkWrap: true,
             crossAxisSpacing: 8,
             mainAxisSpacing: 8,
             childAspectRatio: 1,
-            children: List.generate(30, (index) => _CategoryCard("Аніме")),
+            children: List.generate(30, (index) => const _CategoryCard("Аніме")),
           ),
         ],
       ),
@@ -133,8 +133,8 @@ class _StickerCard extends StatelessWidget {
                   );
                 },
               ),
-              Container(
-                decoration: const BoxDecoration(
+              const DecoratedBox(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
@@ -148,7 +148,7 @@ class _StickerCard extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomLeft,
                 child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Text(
                     stickerPack.name,
                     style: const TextStyle(
@@ -173,22 +173,18 @@ class _CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF9E1FFF),
+        color: const Color(0xFF9E1FFF),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         children: [
-          SizedBox(
-            height: 15,
-          ),
-          Icon(
+          const SizedBox(height: 15),
+          const Icon(
             Icons.sunny,
             size: 48,
             color: Colors.white,
           ),
-          SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           Text(
             title,
             style: const TextStyle(color: Colors.white),
